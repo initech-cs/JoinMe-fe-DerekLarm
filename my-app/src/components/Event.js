@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function Event() {
+export default function Event(props) {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -27,5 +27,3 @@ const EventList = ({ title, description }) => (
     <p>{description}</p>
   </div>
 );
-
-

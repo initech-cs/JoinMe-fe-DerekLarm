@@ -1,0 +1,157 @@
+body {
+  background-color: black;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+.navText {
+  color: white !important;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: bold;
+}
+
+.searchBar {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 2;
+  margin-top: 12px;
+}
+
+input {
+  width: 33%;
+  padding: 6px;
+  padding-left: 15px;
+  border-radius: 15px;
+  border: none;
+}
+input:focus {
+  outline: none;
+}
+
+div.modal-body {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(7px);
+}
+
+div.modal-header {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(7px);
+}
+
+div.modal-content {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background: none;
+  color: white;
+  border: none;
+}
+
+.div.fade.modal.show {
+  background: none;
+}
+
+.DefaultProgressBar_progressBar {
+  background-color: rgba(100, 104, 108, 1) !important;
+}
+
+.DefaultProgressBar_background__horizontal {
+  height: 5px !important;
+  top: 3px !important;
+}
+
+.handleContainer {
+  background: none;
+}
+
+button.DefaultHandle_handle {
+  background-color: rgba(100, 104, 108, 1);
+  box-shadow: none;
+  border: none;
+}
+
+button.DefaultHandle_handle:after {
+  background: none;
+}
+button.DefaultHandle_handle__horizontal:before {
+  background: none;
+}
+.modal {
+  top: 3rem;
+}
+
+.navBar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(7px);
+}
+
+button {
+  border-radius: 15px !important;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.gm-style .gm-style-iw {
+  background-color: rgb(250, 250, 250);
+  color: #333333;
+}
+.gm-style .gm-style-iw-d::-webkit-scrollbar-track,
+.gm-style .gm-style-iw-d::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+.gm-style .gm-style-iw-t::after {
+  background-color: rgb(250, 250, 250) !important;
+  background: transparent;
+}
+
+.pagination {
+  font-family: "Open Sans Condensed", sans-serif;
+  position: fixed;
+  left: 50%;
+  bottom: 0.5rem;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  z-index: 3;
+  padding: 0;
+}
+
+.page-item.active .page-link {
+  background-color: rgba(26, 26, 28, 0.5);
+  border-color: rgba(26, 26, 28, 0.5);
+  color: rgb(27, 131, 244);
+  backdrop-filter: blur(7px);
+}
+
+.page-link {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(7px);
+}
+.page-link:hover {
+  color: rgb(218, 27, 32);
+  background-color: rgba(26, 26, 28, 0.5);
+  border-color: rgba(26, 26, 28, 0.5);
+  backdrop-filter: blur(7px);
+}
+
+.page-link:focus {
+  box-shadow: none !important;
+}
+
+.btn {
+  font-family: "Open Sans Condensed", sans-serif;
+}

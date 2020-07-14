@@ -1,6 +1,11 @@
 import Event from "./Event";
-import SimpleMap from "./Map";
+import Map from "./Map";
 import SearchBox from "./SearchBox"
+import EventModal from "./EventModal"
+import EventForm from "./EventForm"
+import Nav from "./Nav"
+import Paginations from "./Paginations"
 
-export { Event, SimpleMap, SearchBox };
+
+export { Event, Map, SearchBox, EventModal, EventForm, Nav, Paginations };
 

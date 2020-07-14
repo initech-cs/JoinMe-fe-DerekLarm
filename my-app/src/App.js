@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { Event } from "./components/index";
-import Home from "./views/Home";
-
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import Home from "./views/Home";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Map, EventModal, Nav } from "./components/index";
+import "rheostat/initialize";
+import "rheostat/css/rheostat.css";
 
 function App() {
+
   return (
     <div>
-      <Router>
+      {/* <Router>
         <Switch>
           <Route path="/event" exact component={Event} />
           <Route path="/" exact component={Home} />
         </Switch>
-      </Router>
+      </Router> */}
+      <Nav />
+      <Map />
     </div>
   );
 }

@@ -1,11 +1,12 @@
 import React from "react";
-import { Event, SimpleMap } from "../components/index";
+import { Event, Map, EventModal } from "../components/index";
 
-export default function Home() {
+export default function Home(props) {
   return (
     <div>
-      <SimpleMap />
-      <Event/>
+      <Map show={props.show} handleClose={props.handleClose} handleShow={props.handleShow} />
+      <EventModal />
+      <Event />
     </div>
   );
 }

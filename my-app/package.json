@@ -3,14 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reach/combobox": "^0.10.5",
+    "@react-google-maps/api": "^1.9.7",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "date-fns": "^2.14.0",
     "google-map-react": "^1.1.7",
     "react": "^16.13.1",
+    "react-bootstrap": "^1.2.2",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "rheostat": "^4.1.1",
+    "use-places-autocomplete": "^1.3.10"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,9 +45,9 @@
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1"
   },
-"husky": {
-  "hooks": {
-    "pre-commit": "pretty-quick --staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
-}
 }
