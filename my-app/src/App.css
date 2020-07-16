@@ -1,6 +1,6 @@
 body {
   background-color: black;
-  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "Epilogue", sans-serif;
 }
 
 .navText {
@@ -118,7 +118,7 @@ button {
 }
 
 .pagination {
-  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "Epilogue", sans-serif;
   position: fixed;
   left: 50%;
   bottom: 0.5rem;
@@ -150,8 +150,4 @@ button {
 
 .page-link:focus {
   box-shadow: none !important;
-}
-
-.btn {
-  font-family: "Open Sans Condensed", sans-serif;
 }

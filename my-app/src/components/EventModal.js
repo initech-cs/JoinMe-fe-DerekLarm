@@ -23,9 +23,7 @@ export default function EventModal(props) {
             form={props.form}
             show={props.show}
             handleClose={props.handleClose}
-            khoa={props.khoa}
             setCoordinates={props.setCoordinates}
-            setEventData={props.setEventData}
           />
         </Modal.Body>
       </Modal>

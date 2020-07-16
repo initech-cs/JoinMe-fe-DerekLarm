@@ -24,8 +24,8 @@ export default function EventForm(props) {
       maxGroupSize,
       lat,
       lng,
+      time: new Date(),
     };
-    console.log("Event Data:", eventData);
     // eslint-disable-next-line
     const newEvent = await fetch("http://localhost:5000/event", {
       method: "POST",
@@ -34,13 +34,15 @@ export default function EventForm(props) {
       },
       body: JSON.stringify(eventData),
     });
+
+    const data = await fetch("http://localhost:5000/event");
+    const resp = await data.json();
+    props.setCoordinates(resp);
+    console.log("resp", resp);
     props.handleClose();
-    props.setCoordinates(props.khoa);
-    props.setEventData(eventData)
   };
 
   const cancelFunc = () => {
-    props.khoa.pop();
     props.handleClose();
   };
 
@@ -85,7 +87,7 @@ export default function EventForm(props) {
             onValuesUpdated={handleValuesUpdated}
           />
         </Form.Group>
-        <div className="row textCenter" style={{paddingBottom:"10px"}}>
+        <div className="row textCenter" style={{ paddingBottom: "10px" }}>
           <div className="col-6">Start: {tempStartTime}:00</div>
           <div className="col-6">End: {tempEndTime}:00</div>
         </div>
