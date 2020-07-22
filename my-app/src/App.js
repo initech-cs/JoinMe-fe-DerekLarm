@@ -30,7 +30,6 @@ function App(props) {
       });
       if (res.status === 200) {
         const data = await res.json();
-        // todo: setState user object
         setUser({ ...data.user, isAuthenticated: true });
       } else {
         setUser({ isAuthenticated: false });

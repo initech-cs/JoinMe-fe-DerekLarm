@@ -87,7 +87,9 @@ export default function Map(props) {
   // FETCH CERTAIN DAY
   useEffect(() => {
     async function fetchData() {
-      const data = await fetch(`http://localhost:5000/event/${apiDate}`);
+      const data = await fetch(
+        `${process.env.REACT_APP_API_URL}/event/${apiDate}`
+      );
       const resp = await data.json();
       setCoordinates(resp);
       console.log("EVENTS: ", resp);
@@ -99,7 +101,7 @@ export default function Map(props) {
   useEffect(() => {
     async function fetchData() {
       const data = await fetch(
-        `http://localhost:5000/event/modal?page=${pageNum}`
+        `${process.env.REACT_APP_API_URL}/event/modal?page=${pageNum}`
       );
       const resp = await data.json();
       setModalEvents(resp.data);
@@ -142,13 +144,15 @@ export default function Map(props) {
 
   const deleteEvent = async (e) => {
     e.preventDefault();
-    await fetch(`http://localhost:5000/event/${id}`, {
+    await fetch(`${process.env.REACT_APP_API_URL}/event/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
     });
-    const data = await fetch(`http://localhost:5000/event/${apiDate}`);
+    const data = await fetch(
+      `${process.env.REACT_APP_API_URL}/event/${apiDate}`
+    );
     const resp = await data.json();
     setCoordinates(resp);
     setRightClick(null);
@@ -156,7 +160,7 @@ export default function Map(props) {
 
   // SHOW ALL EVENTS
   const allEvents = async (e) => {
-    const data = await fetch("http://localhost:5000/event");
+    const data = await fetch(`${process.env.REACT_APP_API_URL}/event`);
     const resp = await data.json();
     setCoordinates(resp);
     setRightClick(null);
@@ -299,7 +303,8 @@ export default function Map(props) {
             key={coordinate._id}
             position={{ lat: coordinate.lat, lng: coordinate.lng }}
             icon={{
-              url: `/${props.user.name}.png`,
+              // url: `/${props.user.name}.png`,
+              url: "/Derek.png",
               scaledSize: new window.google.maps.Size(4, 4, "rem", "rem"),
               shape: new window.google.maps.Circle(),
               origin: new window.google.maps.Point(0, 0),

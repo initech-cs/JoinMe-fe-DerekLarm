@@ -40,14 +40,14 @@ export default function EventForm(props) {
     };
     console.log(eventData);
     // eslint-disable-next-line
-    const newEvent = await fetch("http://localhost:5000/event", {
+    const newEvent = await fetch(`${process.env.REACT_APP_API_URL}/event`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(eventData),
     });
-    const data = await fetch(`http://localhost:5000/event/${props.apiDate}`);
+    const data = await fetch(`${process.env.REACT_APP_API_URL}/event/${props.apiDate}`);
     const resp = await data.json();
     props.setCoordinates(resp);
     console.log("resp", resp);

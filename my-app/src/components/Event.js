@@ -5,7 +5,7 @@ export default function Event(props) {
 
   useEffect(() => {
     async function fetchData() {
-      const data = await fetch("http://localhost:5000/event");
+      const data = await fetch(`${process.env.REACT_APP_API_URL}/event`);
       const events = await data.json();
       setEvents(events);
     }

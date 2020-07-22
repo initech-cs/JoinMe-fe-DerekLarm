@@ -12,8 +12,8 @@ export default function Nav(props) {
   const schema = {
     email: Joi.string().required().email().label("Email"),
     password: Joi.string().required().min(5).label("Password"),
-    name: Joi.string().required().min(5).label("Username")
-  }
+    name: Joi.string().required().min(5).label("Username"),
+  };
 
   const loginShow = async (e) => {
     setShow(e);
@@ -30,7 +30,7 @@ export default function Nav(props) {
         email,
         password,
       };
-      const res = await fetch("http://localhost:5000/auth", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/auth`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +56,7 @@ export default function Nav(props) {
       password,
     };
     // eslint-disable-next-line
-    const newRegister = await fetch("http://localhost:5000/users", {
+    const newRegister = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

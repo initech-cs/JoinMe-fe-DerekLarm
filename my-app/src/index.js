@@ -12,6 +12,8 @@ function reducer(state = initialState, action) {
   return { ...state };
 }
 
+console.log("Superman:", process.env.REACT_APP_API_URL)
+
 const store = createStore(reducer);
 
 ReactDOM.render(
