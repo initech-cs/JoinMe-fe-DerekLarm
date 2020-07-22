@@ -34,10 +34,16 @@ export default [
     elementType: "labels.icon",
     stylers: [
       {
-        visibility: "off",
+        visibility: "on",
       },
     ],
   },
+
+  {
+    featureType: "transit.station.bus",
+    stylers: [{ visibility: "off" }],
+  },
+
   {
     featureType: "administrative",
     elementType: "geometry.fill",

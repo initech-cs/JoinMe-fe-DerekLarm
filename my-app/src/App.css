@@ -3,10 +3,32 @@ body {
   font-family: "Epilogue", sans-serif;
 }
 
+p {
+  font-size: 1rem;
+  font-family: Helvetica, sans-serif;
+}
+
 .navText {
   color: white !important;
   font-family: "Open Sans Condensed", sans-serif;
   font-weight: bold;
+  z-index: 9000;
+}
+
+.navBtn {
+  background-color: rgba(0, 0, 0, 0);
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: bold;
+  border: none;
+}
+
+#navBtn:hover {
+  color: #aaaaaa;
+  transition-duration: 0.3s;
+}
+
+#navBtn:focus {
+  box-shadow: none;
 }
 
 .searchBar {
@@ -16,38 +38,90 @@ body {
   left: 0;
   right: 0;
   text-align: center;
-  z-index: 2;
   margin-top: 12px;
+  width: 33%;
+  z-index: 3;
+}
+
+.eventButton {
+  position: absolute;
+  bottom: 0.5rem;
+  background: none;
+  border: none;
+  z-index: 10;
+  font-size: 3rem;
+}
+
+.locate {
+  position: absolute;
+  top: 70px;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  z-index: 10;
+  font-size: 3rem;
+  color: white;
+}
+
+.locate:hover {
+  cursor: pointer;
+  color: rgb(27, 131, 244);
+  transition-duration: 0.2s;
+}
+
+.locate:focus {
+  outline: none;
+}
+
+[data-reach-combobox-popover] {
+  font-family: Helvetica, Arial, sans-serif;
+  margin-top: 12px;
+  border: none !important;
+}
+
+[data-reach-combobox-popover]:focus {
+  outline: none !important;
+}
+.btn {
+  margin-left: 10px;
 }
 
 input {
-  width: 33%;
+  width: 100%;
   padding: 6px;
   padding-left: 15px;
   border-radius: 15px;
+  font-family: Helvetica, Arial, sans-serif;
   border: none;
 }
 input:focus {
   outline: none;
 }
 
-div.modal-body {
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(7px);
+.form-control {
+  background-color: #efefef;
 }
 
-div.modal-header {
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(7px);
+.modal-body {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 30px;
+}
+
+.modal-backdrop.show {
+  opacity: 0.5;
+}
+
+.modal-header {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 30px;
+}
+
+.modal-footer {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 30px;
 }
 
 div.modal-content {
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
   background: none;
   color: white;
   border: none;
@@ -57,23 +131,29 @@ div.modal-content {
   background: none;
 }
 
+label.form-label {
+  font-weight: bold;
+}
+
 .DefaultProgressBar_progressBar {
-  background-color: rgba(100, 104, 108, 1) !important;
+  background-color: #333333!important;
 }
 
 .DefaultProgressBar_background__horizontal {
-  height: 5px !important;
-  top: 3px !important;
+  height: 8px !important;
+  top: 1px !important;
+  background-color: white!important;
 }
 
 .handleContainer {
-  background: none;
+  background-color: #6c757d;
 }
 
 button.DefaultHandle_handle {
-  background-color: rgba(100, 104, 108, 1);
+  background-color: white;
   box-shadow: none;
   border: none;
+  border-radius: 50%;
 }
 
 button.DefaultHandle_handle:after {
@@ -82,22 +162,19 @@ button.DefaultHandle_handle:after {
 button.DefaultHandle_handle__horizontal:before {
   background: none;
 }
-.modal {
-  top: 3rem;
-}
 
 .navBar {
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 3;
   height: 60px;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(7px);
 }
 
 button {
-  border-radius: 15px !important;
+  border-radius: 15px;
 }
 
 .textCenter {
@@ -121,33 +198,88 @@ button {
   font-family: "Epilogue", sans-serif;
   position: fixed;
   left: 50%;
-  bottom: 0.5rem;
-  transform: translate(-50%, -50%);
+  bottom: 0rem;
+  transform: translate(-50%, -10%);
   margin: 0 auto;
   z-index: 3;
   padding: 0;
 }
 
+.dateBottom {
+  background-color: rgba(0, 0, 0, 1);
+  border-color: rgba(26, 26, 28, 1);
+  backdrop-filter: blur(7px);
+  padding-left: 15px;
+  padding-right: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
 .page-item.active .page-link {
-  background-color: rgba(26, 26, 28, 0.5);
-  border-color: rgba(26, 26, 28, 0.5);
+  background-color: rgba(26, 26, 28, 0.7);
+  border-color: rgba(26, 26, 28, 0.7);
   color: rgb(27, 131, 244);
   backdrop-filter: blur(7px);
 }
 
 .page-link {
   color: white;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 1);
   border: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(7px);
 }
 .page-link:hover {
   color: rgb(218, 27, 32);
-  background-color: rgba(26, 26, 28, 0.5);
-  border-color: rgba(26, 26, 28, 0.5);
+  background-color: rgba(26, 26, 28, 0.7);
+  border-color: rgba(26, 26, 28, 0.7);
   backdrop-filter: blur(7px);
 }
 
 .page-link:focus {
   box-shadow: none !important;
+}
+
+.leftNav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+
+img.friendPic {
+  width: 2.5rem;
+}
+
+.dropdownMenu {
+  height: 70vh;
+  width: 15rem;
+  background-color: white;
+}
+
+#dropdown-item-button {
+  margin: 0;
+  width: 15rem;
+  border-radius: 0;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  outline: none;
+}
+
+#dropdown-item-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+.dropdown-toggle:empty::after {
+  margin-left: 85px;
+}
+
+.blackBox {
+  position: absolute;
+  background-color: black;
+  width: 15rem;
+  height: 60px;
+  z-index: 4;
+  padding-top: 10px;
+  padding-left: 70px;
 }

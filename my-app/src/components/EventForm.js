@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import Rheostat from "rheostat";
+import moment from "moment";
 
 export default function EventForm(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [maxGroupSize, setMaxGroupSize] = useState("");
+  const [address, setAddress] = useState(props.streetAddress);
+  // eslint-disable-next-line
+  const [newDay, setNewDay] = useState(props.day);
+  const time = props.day;
   // RHEOSTAT INPUT
   const [startTime, setStartTime] = useState(0);
   const [endTime, setEndTime] = useState(24);
@@ -15,17 +19,26 @@ export default function EventForm(props) {
   const createEvent = async (e) => {
     const lat = props.lat;
     const lng = props.lng;
+    const date = (moment(time).format("dddd") + ' ' + moment(time).format(
+      "MMM Do YYYY"
+    ))
     e.preventDefault();
     const eventData = {
+      name: props.user.name,
       title,
       description,
       startTime,
       endTime,
-      maxGroupSize,
       lat,
       lng,
       time: new Date(),
+      date: date,
+      address: address,
+      rawDate: time,
+      creatorID: props.user._id,
+      apiDate: props.apiDate,
     };
+    console.log(eventData);
     // eslint-disable-next-line
     const newEvent = await fetch("http://localhost:5000/event", {
       method: "POST",
@@ -34,8 +47,7 @@ export default function EventForm(props) {
       },
       body: JSON.stringify(eventData),
     });
-
-    const data = await fetch("http://localhost:5000/event");
+    const data = await fetch(`http://localhost:5000/event/${props.apiDate}`);
     const resp = await data.json();
     props.setCoordinates(resp);
     console.log("resp", resp);
@@ -54,6 +66,11 @@ export default function EventForm(props) {
     setTempStartTime(e.values[0]);
     setTempEndTime(e.values[1]);
   };
+
+  useEffect(() => {
+    setAddress(props.streetAddress);
+    setNewDay(props.day);
+  }, [props.streetAddress, props.day]);
 
   return (
     <div>
@@ -76,6 +93,14 @@ export default function EventForm(props) {
             onChange={(e) => setDescription(e.target.value)}
           />
         </Form.Group>
+        <Form.Group>
+          <div style={{ fontWeight: "bold" }}>Date:</div>
+          <div>
+            {`${moment(time).format("dddd")}, ${moment(time).format(
+              "MMM Do YYYY"
+            )}`}
+          </div>
+        </Form.Group>
 
         <Form.Group controlId="startEndTime">
           <Form.Label>Start/End Time</Form.Label>
@@ -87,19 +112,22 @@ export default function EventForm(props) {
             onValuesUpdated={handleValuesUpdated}
           />
         </Form.Group>
-        <div className="row textCenter" style={{ paddingBottom: "10px" }}>
-          <div className="col-6">Start: {tempStartTime}:00</div>
-          <div className="col-6">End: {tempEndTime}:00</div>
-        </div>
+        <Form.Group>
+          <div className="row textCenter" style={{ paddingBottom: "10px" }}>
+            <div className="col-6">Start: {tempStartTime}:00</div>
+            <div className="col-6">End: {tempEndTime}:00</div>
+          </div>{" "}
+        </Form.Group>
 
-        <Form.Group controlId="maxGroupSize">
-          <Form.Label>Max Group Size</Form.Label>
+        <Form.Group controlId="address">
+          <Form.Label>Address</Form.Label>
           <Form.Control
-            type="number"
-            value={maxGroupSize}
-            onChange={(e) => setMaxGroupSize(e.target.value)}
+            type="text"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
           />
         </Form.Group>
+
         <div className="row textCenter">
           <div className="col-6">
             <Button variant="secondary" onClick={() => cancelFunc()}>
